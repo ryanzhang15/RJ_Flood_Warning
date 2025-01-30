@@ -18,3 +18,16 @@ def stations_by_distance(stations, p):
         station_dist.append((station,  dist))
 
     return sorted_by_key(station_dist, 1) # Return the list, sorted by distance
+
+
+def stations_within_radius(stations, centre, r):
+    """This function takes a list of MonitoringStation objects, a coordinate for the centre, and a radius r, returning a list of stations within distance r from centre."""
+
+    station_dist = stations_by_distance(stations, centre) # Get a list of (station, distance to center) tuples sorted by distance from centre
+    stations_within_r = [] # Create an empty list of stations for the function to return
+    
+    for i in station_dist:
+        if i[1] <= r: stations_within_r.append(i[0])
+        else: break # Break the loop early, since the list is sorted by distance
+
+    return stations_within_r
