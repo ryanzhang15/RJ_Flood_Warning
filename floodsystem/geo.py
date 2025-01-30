@@ -31,3 +31,21 @@ def stations_within_radius(stations, centre, r):
         else: break # Break the loop early, since the list is sorted by distance
 
     return stations_within_r
+
+
+def rivers_with_station(stations):
+    """This function takes a list of MonitorinStation objects, returning a set of the names of rivers with a monitoring station."""
+
+    return set([i.river for i in stations]) # Rieturn a set of the names of rivers wth a monitoring station
+
+
+def stations_by_river(stations):
+    """This function takes a list of MonitoringStation objects, returning a dictionary that maps river names to a list of stations on that river."""
+
+    river_to_stations = {key : [] for key in rivers_with_station(stations)} # Create an dictionary with river names as keys and empty lists as values
+    
+    # Append stations to their respective river lists
+    for i in stations:
+        river_to_stations[i.river].append(i)
+
+    return river_to_stations
