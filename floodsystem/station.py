@@ -44,3 +44,10 @@ class MonitoringStation:
 #task F
    def typical_range_consistent(self):
        return self.typical_range is not None and float(self.typical_range[1]) - float(self.typical_range[0]) >= 0
+
+def inconsistent_typical_range_stations(stations):
+    incon_tr_station=[]
+    for i in stations:
+        if i.typical_range_consistent==False:
+            incon_tr_station.append(i.name)
+    return incon_tr_station
