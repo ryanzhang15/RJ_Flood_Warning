@@ -54,7 +54,7 @@ def stations_by_river(stations):
 #task E#
 def rivers_by_station_number(stations, N):
     river_and_nstation=[]
-    nstation_by_river =  stations_by_river(stations)
+    station_by_river =  stations_by_river(stations)
     for i in station_by_river:
         nstation=len(station_by_river[i])
         station_per_river=i,nstation
