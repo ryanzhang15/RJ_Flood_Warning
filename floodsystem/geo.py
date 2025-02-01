@@ -58,8 +58,8 @@ def rivers_by_station_number(stations, N):
     for i in station_by_river:
         nstation=len(station_by_river[i])
         station_per_river=i,nstation
-        nstation_by_river.append(station_per_river)
-    sorted_nstation_by_river=sorted_by_key(nstation_by_river,1,reverse=True)
+        station_by_river.append(station_per_river)
+    sorted_nstation_by_river=sorted_by_key(station_by_river,1,reverse=True)
 
     if sorted_nstation_by_river[N][1]==sorted_nstation_by_river[N+1][1]:
         n=0
