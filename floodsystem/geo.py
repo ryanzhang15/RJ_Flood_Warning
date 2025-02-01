@@ -49,3 +49,26 @@ def stations_by_river(stations):
         river_to_stations[i.river].append(i)
 
     return river_to_stations
+
+
+#task E#
+def rivers_by_station_number(stations, N):
+    river_and_nstation=[]
+    nstation_by_river =  stations_by_river(stations)
+    for i in station_by_river:
+        nstation=len(station_by_river[i])
+        station_per_river=i,nstation
+        nstation_by_river.append(station_per_river)
+    sorted_nstation_by_river=sorted_by_key(nstation_by_river,1,reverse=True)
+
+    if sorted_nstation_by_river[N][1]==sorted_nstation_by_river[N+1][1]:
+        n=0
+        while sorted_nstation_by_river[N][1]==sorted_nstation_by_river[N+n+1][1]:
+            n+=1
+        return sorted_nstation_by_river[:N+n]
+    else:
+        return sorted_nstation_by_river[N]
+
+#task F
+
+                
