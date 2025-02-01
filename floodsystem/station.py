@@ -39,15 +39,22 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+    
+    #task F
+    def typical_range_consistent(self):
+        # Consistent if data exists, and high is larger than or equal to low
+        return self.typical_range is not None and float(self.typical_range[1]) >= float(self.typical_range[0]) 
 
 
-#task F
-def typical_range_consistent(self):
-    return self.typical_range is not None and float(self.typical_range[1]) - float(self.typical_range[0]) >= 0
-
+#also task F
 def inconsistent_typical_range_stations(stations):
+    '''This function takes a list of MonitoringStation objects, returning a list of names of stations with inconsistent typical low/high ranges.'''
+
     incon_tr_station=[]
     for i in stations:
-        if i.typical_range_consistent==False:
+        if i.typical_range_consistent()==False:
             incon_tr_station.append(i.name)
-    return incon_tr_station
+    return sorted(incon_tr_station) # Return sorted stations
+
+
+
