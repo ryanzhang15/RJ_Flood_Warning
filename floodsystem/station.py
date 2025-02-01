@@ -39,3 +39,8 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+
+#task F
+   def typical_range_consistent(self):
+       return self.typical_range is not None and float(self.typical_range[1]) - float(self.typical_range[0]) >= 0
