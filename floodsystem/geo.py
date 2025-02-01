@@ -53,14 +53,19 @@ def stations_by_river(stations):
 
 #task E#
 def rivers_by_station_number(stations, N):
+    """This function takes a list of MonitoringStation objects and an integer N, returning a list of (river name, number of stations) tuples of N rivers with the greatest number of stations."""
+
     river_and_nstation=[]
-    station_by_river =  stations_by_river(stations)
+    station_by_river = stations_by_river(stations)
+
+    # Retrieve list of tuples
     for i in station_by_river:
         nstation=len(station_by_river[i])
         station_per_river=i,nstation
         station_by_river.append(station_per_river)
-    sorted_nstation_by_river=sorted_by_key(station_by_river,1,reverse=True)
+    sorted_nstation_by_river=sorted_by_key(station_by_river,1,reverse=True) # Sort based on number of stations
 
+    # Include rivers with the same number of stations as the Nth river
     if sorted_nstation_by_river[N][1]==sorted_nstation_by_river[N+1][1]:
         n=0
         while sorted_nstation_by_river[N][1]==sorted_nstation_by_river[N+n+1][1]:
