@@ -44,6 +44,13 @@ class MonitoringStation:
     def typical_range_consistent(self):
         # Consistent if data exists, and high is larger than or equal to low
         return self.typical_range is not None and float(self.typical_range[1]) >= float(self.typical_range[0]) 
+    
+    # task 2B
+    def relative_water_level(self):
+        if not self.typical_range_consistent() or self.latest_level is None:
+            return None
+        else:
+            return (self.latest_level - self.typical_range[0])/(self.typical_range[1] - self.typical_range[0])
 
 
 #also task F
