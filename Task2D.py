@@ -14,7 +14,7 @@ def run():
     stations = build_station_list()
 
     # Station name to find
-    station_name = "Cam"
+    station_name = "Ledgard Bridge" #Cam has no data for some reason, as of 04 Feb 2025, 12:35pm
 
     # Find station
     station_cam = None
