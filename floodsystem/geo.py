@@ -6,11 +6,15 @@ geographical data.
 
 """
 
+import pip
 from  .utils import sorted_by_key  # noqa
 from haversine import haversine, Unit
 
 def stations_by_distance(stations, p):
     """This function takes a list of MonitoringStation objects and a coordinate p, returning a list of (station, distance) tuples sorted by distance from p."""
+
+    #install haversine module
+    pip.main(['install', 'haversine'])
 
     station_dist = [] # Create an empty list to store tuples of (station, distance to p)
     for station in stations:
