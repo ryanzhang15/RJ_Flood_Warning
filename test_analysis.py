@@ -8,7 +8,7 @@ from floodsystem.stationdata import build_station_list
 
 def test_polyfit():
     dates = [datetime.datetime.now()-datetime.timedelta(days=i) for i in range(10)]
-    levels = [3, 5]
+    levels = [2*i for i in range(10)]
     p = 4
 
     a, b = polyfit(dates, levels, p)
