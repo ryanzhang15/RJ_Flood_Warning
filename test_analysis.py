@@ -17,7 +17,7 @@ def test_polyfit():
     assert b
 
 
-def test_analyze_risk(stations):
+def test_analyze_risk():
     stations = build_station_list()
     stations_risk = analyze_risk(stations)
 
