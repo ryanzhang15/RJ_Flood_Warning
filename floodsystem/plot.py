@@ -8,7 +8,7 @@ def plot_water_levels(station, dates, levels):
     plt.xlabel("Date")
     plt.ylabel("Water Level (m)")
 
-    plt.xticks(rotation = 45);
+    plt.xticks(rotation = 45)
     plt.title("Station {}".format(station.name))
 
     low = station.typical_range[0]
@@ -17,8 +17,8 @@ def plot_water_levels(station, dates, levels):
     low_x = np.ones(len(dates)) * low
     high_x = np.ones(len(dates)) * high
 
-    plt.plot(dates, low_x)
-    plt.plot(dates, high_x)
+    plt.plot(dates, low_x, label="Typical low")
+    plt.plot(dates, high_x, label="Typical high")
 
     plt.legend()
     plt.tight_layout()
