@@ -11,6 +11,16 @@ def plot_water_levels(station, dates, levels):
     plt.xticks(rotation = 45);
     plt.title("Station {}".format(station.name))
 
+    low = station.typical_range[0]
+    high = station.typical_range[1]
+
+    low_x = np.ones(len(dates)) * low
+    high_x = np.ones(len(dates)) * high
+
+    plt.plot(dates, low_x)
+    plt.plot(dates, high_x)
+
+    plt.legend()
     plt.tight_layout()
     plt.show()
     return
@@ -24,6 +34,15 @@ def plot_water_level_with_fit(station, dates, levels, p):
 
     plt.xticks(rotation = 45);
     plt.title("Station {}".format(station.name))
+
+    low = station.typical_range[0]
+    high = station.typical_range[1]
+
+    low_x = np.ones(len(dates)) * low
+    high_x = np.ones(len(dates)) * high
+
+    plt.plot(dates, low_x)
+    plt.plot(dates, high_x)
 
     # Fit a polynomial of degree p to the data
     poly, shift = polyfit(dates, levels, p)
